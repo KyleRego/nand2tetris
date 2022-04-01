@@ -18,3 +18,11 @@ Mux(a, b, sel) = out = Or(And(Not(sel), a), And(sel, b))
 
 DMux(sel, in) = a, b = And(Not(sel), in) , And(sel, in)
 ```
+
+## Chapter 2 Notes
+
+Word size is a common hardware term for the number of bits used by a computer to represent a basic chunk of information (for example an integer). Using *n* bits, we can represent the integers from 0 to 2^n - 1.
+
+When adding binary numbers, *overflow* occurs when the most significant bit addition generates a carry of 1. In this course we just ignore overflow.
+
+The *two's complement method* is a coding scheme commonly used to represent signed numbers in binary code. The two's complement binary code that represents negative x is taken to be the code that represents 2^n - x. This allows for n bits to code 2^n binary numbers ranging from -2^(n-1) to 2^(n-1) - 1. The code of any nonnegative number begins with a 0. The code of any negative number begins with a 1. A nice feature of the two's complement method is that subtraction is handled as a special case of addition. For example, 5 + (-7) is 0101 + 1001 = 1110 which is the binary code for -2.
