@@ -9,4 +9,45 @@
 // This program only needs to handle arguments that satisfy
 // R0 >= 0, R1 >= 0, and R0*R1 < 32768.
 
-// Put your code here.
+// 	Pseudocode
+// 	Set counter equal to 0
+// 	Set R2 equal to 0
+// 	LOOP:
+//   	If counter == R1 goto END
+//		Set the value of R2 equal to R2 plus R0
+//		Increment counter
+//		goto LOOP
+// 	END:
+//		
+// Set counter equal to 0
+	@0
+	D=A
+	@counter
+	M=D
+// Set R2 equal to 0
+	@0
+	D=A
+	@R2
+	M=D
+(LOOP)
+// If counter == R1 goto END
+	@counter
+	D=M
+	@R1
+	D=D-M
+	@END
+	D;JEQ
+// Set the value of R2 equal to R2 plus R0
+	@R0
+	D=M
+	@R2
+	M=D+M
+// Increment counter
+	@counter
+	M=M+1
+// goto LOOP
+	@LOOP
+	0;JMP
+(END)
+	@END
+	0;JMP
